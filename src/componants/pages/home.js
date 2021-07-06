@@ -2,33 +2,36 @@ import React, { component, useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import ImageSelect from "../helperUI/image_select";
 import ConvSelect from "../helperUI/convolution_select";
+import sunset from "../../assets/sunset.jpg";
+import snow from "../../assets/snow.jpg";
+import city from "../../assets/city.jpg";
+import mountain from "../../assets/mountain.jpg";
 
 export default function HomePage(props) {
 
   const display = {"backgroundColor":"blue"}
 
-  [image_1, setImage1] = useState({
-    title : "mountains",
-    image : require("../../assets/mountain.jpg"),
-    selected : false
-  })
-
-  [image_2, setImage2] = useState({
-    title : "city",
-    image : require("../../assets/city.jpg"),
-    selected : false
-  })
-
-  [image_3, setImage3] = useState({
-    title : "sunset",
-    image : require("../../assets/sunset.jpg"),
-    selected : false
-  })
-  
-  [image_4, setImage4] = useState({
-    title : "snow",
-    image : require("../../assets/snow.jpg"),
-    selected : false
+  const [images, setImages] = useState({
+    image_1 : {
+      title : "mountains",
+      image : mountain,
+      selected : false
+    },
+    image_2 : {
+      title : "city",
+      image : city,
+      selected : false
+    },
+    image_3 : {
+      title : "sunset",
+      image : sunset,
+      selected : false
+    },
+    image_4 : {
+      title : "snow",
+      image : snow,
+      selected : false
+    }
   })
 
   return (
@@ -42,7 +45,10 @@ export default function HomePage(props) {
 
         <Grid container direction="row" xs={12}>
           <Grid container xs={6}>
-            <ImageSelect />
+            <ImageSelect 
+            images={images}
+            set_images={setImages}
+            />
           </Grid>
           <Grid container xs={6}>
             <ConvSelect />
