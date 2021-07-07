@@ -6,6 +6,7 @@ import sunset from "../../assets/sunset.jpg";
 import snow from "../../assets/snow.jpg";
 import city from "../../assets/city.jpg";
 import mountain from "../../assets/mountain.jpg";
+import Button from '@material-ui/core/Button';
 
 export default function HomePage(props) {
 
@@ -34,6 +35,8 @@ export default function HomePage(props) {
     }
   })
 
+  const [convolution, setConvolution] = useState("horizontal");
+
   return (
     <div className="full-screen-container">
       <Grid container direction="column" align="center" xs={12}>
@@ -51,8 +54,15 @@ export default function HomePage(props) {
             />
           </Grid>
           <Grid container xs={6}>
-            <ConvSelect />
+            <ConvSelect  
+            convolution={convolution}
+            set_convolution={setConvolution}
+            />
           </Grid>
+        </Grid>
+
+        <Grid container direction="column">
+          <Button variant="outlined">Run Convolution!</Button>
         </Grid>
 
       </Grid>
