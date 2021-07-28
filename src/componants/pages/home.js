@@ -37,6 +37,7 @@ export default function HomePage(props) {
 
   const [convolution, setConvolution] = useState("horizontal");
 
+  /*
   const draw_selected_image = () => {
     let newState = Object.assign({}, images);
     for (let selection in newState) {
@@ -47,6 +48,7 @@ export default function HomePage(props) {
   ctx.drawImage(image, 0, 0);
   var imgData = ctx.getImageData(x, y, width, height).data;
   }
+  */
 
   return (
     <div className="full-screen-container">
