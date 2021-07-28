@@ -37,6 +37,17 @@ export default function HomePage(props) {
 
   const [convolution, setConvolution] = useState("horizontal");
 
+  const draw_selected_image = () => {
+    let newState = Object.assign({}, images);
+    for (let selection in newState) {
+      if (newState[selection][selected] === true) {
+        var image = newState[selection][image] 
+      }
+    }
+  ctx.drawImage(image, 0, 0);
+  var imgData = ctx.getImageData(x, y, width, height).data;
+  }
+
   return (
     <div className="full-screen-container">
       <Grid container direction="column" align="center" xs={12}>
@@ -61,8 +72,12 @@ export default function HomePage(props) {
           </Grid>
         </Grid>
 
+        <Grid item direction="column" xs={10} />
         <Grid container direction="column">
           <Button variant="outlined">Run Convolution!</Button>
+          <h1>
+            Result:
+          </h1>
         </Grid>
 
       </Grid>
