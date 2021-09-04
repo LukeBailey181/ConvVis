@@ -7,6 +7,7 @@ import snow from "../../assets/snow.jpg";
 import city from "../../assets/city.jpg";
 import mountain from "../../assets/mountain.jpg";
 import Button from '@material-ui/core/Button';
+import Jimp from "jimp";
 
 export default function HomePage(props) {
 
@@ -35,21 +36,21 @@ export default function HomePage(props) {
     }
   })
 
+  const filters = {
+    "blur" : [[0.9, 0.9, 0.9], [0.9, 0.9, 0.9], [0.9, 0.9, 0.9]] 
+  }
+
   const [convolution, setConvolution] = useState("horizontal");
 
-  /*
-  const draw_selected_image = () => {
-    let newState = Object.assign({}, images);
-    for (let selection in newState) {
-      if (newState[selection][selected] === true) {
-        var image = newState[selection][image] 
-      }
-    }
-  ctx.drawImage(image, 0, 0);
-  var imgData = ctx.getImageData(x, y, width, height).data;
-  }
-  */
+  const run_convolution = () => {
+  
+    // change this 
+    const photo = await Jimp.read(images.image_1)
+    photo.convolute(filters[convolution])
 
+
+    return 
+  }
   return (
     <div className="full-screen-container">
       <Grid container direction="column" align="center" xs={12}>
